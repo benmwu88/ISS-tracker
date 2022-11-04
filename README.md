@@ -43,6 +43,8 @@ Pycopy-webbrowser: Allows users to view Web-based documents
 **Priority of Features**
 
 High Priority: Longitude Latitude and display on some sort of map/graph
+
 Medium Priority: Speed/acceleration and distance from you
+
 Low Priority: Distance from landmarks
 
