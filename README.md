@@ -6,9 +6,7 @@ Partners: Kevin Zhou and Ben Wu
 We will distribute work evenly 50/50 and help each other with tasks if needed.
 
 Project Overview: We will create a bot that tracks the position of the International Space Station and map it out on a world map. The position will be tracked in real
-
 time in terms of longitude and latitude and show how far it is from your current location. The speed and direction of the ISS can also be recorded. Furthermore, the
-
 significance of the position will be displayed, such as which ocean/continent it is over, and if it is near any landmarks (e.g. Great Wall, Eiffel Tower, etc.)’
 
 **Project Class and Methods**
