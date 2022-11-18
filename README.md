@@ -3,6 +3,7 @@
 **Final Project Proposal**
 
 Partners: Kevin Zhou and Ben Wu
+
 We will distribute work evenly 50/50 and help each other with tasks if needed.
 
 Project Overview: We will create a bot that tracks the position of the International Space Station and map it out on a world map. The position will be tracked in real
