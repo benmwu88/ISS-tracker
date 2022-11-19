@@ -25,8 +25,12 @@ class Movement(Location):
     def direction(self):
         pass
 
-#displays ISS position and updates it
+#Siaplays Map and ISS position, updating every refresh time
 class Display():
-    #draws ISS positions on a map using a line to connect the dots
+    #display a rectangular map (use library)
     def map():
         pass
+    #draws ISS positions on a map and lines between points every x miles
+    def point():
+        pass
+    
