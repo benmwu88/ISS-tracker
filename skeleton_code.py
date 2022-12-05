@@ -1,3 +1,5 @@
+import turtle
+
 #ISS location with methods to define significance of location
 class Location():
     #initialization function that takes in a user input for position
@@ -29,8 +31,20 @@ class Movement(Location):
 class Display():
     #display a rectangular map (use library)
     def map():
-        pass
+        # Setup the world map
+        screen = turtle.Screen()
+        screen.setup(1189, 848)
+        screen.setworldcoordinates(-180,-90,180,90)
+        screen.bgpic("map.gif") 
+        screen.register_shape("iss.gif")
     #draws ISS positions on a map and lines between points every x miles
     def point():
-        pass
-    
+        
+        iss = turtle.Turtle()
+        iss.shape("iss.gif")
+        iss.penup()
+
+        return iss # return ISS object
+
+def main(trail=True):
+    iss = Display()
