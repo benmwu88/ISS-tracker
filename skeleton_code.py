@@ -26,7 +26,7 @@ class Location():
         return lon, lat, time
 
 
-    def haversine(lon1, lat1, lon2, lat2):
+    def golbeclac(lon1, lat1, lon2, lat2):
         """
         Calculate the great circle distance in kilometers between two points 
         on the earth (specified in decimal degrees)
@@ -58,7 +58,7 @@ class Location():
 class Movement(Location):
     #velocity of ISS at a certain location
     def velocity(lon1, lat1, time1, lon2, lat2, time2):
-        d = haversine(lon1, lat1, lon2, lat2)
+        d = globecalc(lon1, lat1, lon2, lat2)
         t = time2-time1 or 1 # incase of 0 time difference change to 1 to handle ZeroDivisionError
         return round(((d/t)*3600)/1.60934, 2) # returns speed in kilometers per hour rounded upto 2nd decimal place
     #acceleration of ISS at a certain location
