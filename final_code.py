@@ -8,9 +8,6 @@ import time as time_module
 
 #ISS location with methods to define significance of location
 class Location():
-    #initialization function that takes in a user input for position
-    def __init__(self,user_position):
-        self.userposition = user_position
     #function that finds current position of ISS
     def iss_position(self):
         # load the current status of the ISS in real-time
@@ -52,11 +49,13 @@ class Location():
 
 #ISS movement attributes at a certain location 
 class Movement(Location):
+    def __init__(self):
+        self.d = Location()
     #velocity of ISS at a certain location
-    def velocity(lon1, lat1, time1, lon2, lat2, time2):
-        d = globecalc(lon1, lat1, lon2, lat2)
+    def velocity(self,lon1, lat1, time1, lon2, lat2, time2):
+        x = self.d.globecalc(lon1, lat1, lon2, lat2)
         t = time2-time1 or 1 # incase of 0 time difference change to 1 to handle ZeroDivisionError
-        return round(((d/t)*3600)/1.60934, 2) # returns speed in kilometers per hour rounded upto 2nd decimal place
+        return round(((x/t)*3600)/1.60934, 2) # returns speed in kilometers per hour rounded upto 2nd decimal place
     #acceleration of ISS at a certain location
     def acceleration(self):
         pass
@@ -95,4 +94,9 @@ class Display():
             print(p['name'])
 
 def main(trail=True):
-    iss = Display()
+    map = Display()
+    map.setup()
+    map.astronaut_details()
+
+    ISS = Location()
+    ISS.iss_position()
