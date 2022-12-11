@@ -66,7 +66,7 @@ class Movement(Location):
 #Siaplays Map and ISS position, updating every refresh time
 class Display():
     #display a rectangular map (use library)
-    def setup():
+    def setup(self):
         turtle.title('ISS Tracker')
  
         # Setup the world map
@@ -83,7 +83,7 @@ class Display():
  
         return iss # return ISS object
  
-    def astronaut_details():
+    def astronaut_details(self):
         # load the current status of astronauts on ISS in real-time
         response = urllib.request.urlopen("http://api.open-notify.org/astros.json")
         result = json.loads(response.read())
@@ -101,15 +101,16 @@ def main(trail=True):
     ISS = Location()
     ISS.iss_position()
  
-    prevlon, prevlan, prevtime = iss_position() # initialize reference values
+    prevlon, prevlan, prevtime = ISS.iss_position() # initialize reference values
  
-    while True:
-        lon, lat, time = iss_position()
-        speed = velocity(prevlon, prevlan, prevtime, lon, lat, time)
+    while trail == True:
+        lon, lat, time = ISS.iss_position()
+        speed = ISS.velocity(prevlon, prevlan, prevtime, lon, lat, time)
  
         # Update the ISS location on the map
-        iss.goto(lon, lat)
+        ISS.goto(lon, lat)
  
         prevlon, prevlan, prevtime = lon, lat, time # update reference values
         time_module.sleep(5) # Update every 5 seconds
 
+main()
