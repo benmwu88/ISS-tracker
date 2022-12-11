@@ -27,10 +27,6 @@ class Location():
 
 
     def globecalc(lon1, lat1, lon2, lat2):
-        """
-        Calculate the great circle distance in kilometers between two points 
-        on the earth (specified in decimal degrees)
-        """
         # convert decimal degrees to radians 
         lon1, lat1, lon2, lat2 = map(radians, [lon1, lat1, lon2, lat2])
 
@@ -87,6 +83,16 @@ class Display():
         iss.penup()
 
         return iss # return ISS object
+
+    def astronaut_details():
+        # load the current status of astronauts on ISS in real-time
+        response = urllib.request.urlopen("http://api.open-notify.org/astros.json")
+        result = json.loads(response.read())
+
+        # Extract and print the astronaut's details
+        print(f"There are currently {result['number']} astronauts on the ISS: ")
+        for p in result["people"]:
+            print(p['name'])
 
 def main(trail=True):
     iss = Display()
