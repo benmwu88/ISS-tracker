@@ -1,5 +1,43 @@
 # ISS-tracker
 
+
+## Table of contents
+* [Summary](#summary)
+* [Overview of Code](#overview-of-code)
+* [Instructions to use](#instructions-to-use)
+* [Suggested future directions](#suggested-future-directions)
+
+## Summary
+The program we wrote is an International Space Station (ISS) tracker. It tracks the current location of the ISS and displays it on a world map created by the turtle library. Within the terminal, the program displays quantitative data. This data includes the names of the astronauts onboard as well as the velocity the ISS is traveling at in miles per hour. The main inner functionality of the program includes using the NASA API to extract the latitude and longitude of the ISS, then finding  those coordinates on the world map. These coordinates are taken from NASA’s website and are updated in the script every five seconds. Due to this, relevant data such as the velocity as well as the position of the ISS icon are changed constantly. We also wanted to display the ISS icon compared to the center of the globe, which is why there is a line connecting it to there. 
+
+## Overview of Code
+Within our code, we have three separate classes. The first class, named Location, has no attributes, but several methods. The first method is the iss_position method which tracks the ISS’s location at a set interval, which we set at five seconds. The second method is the globecalc method which calculates the circle distance on the globe between two points. This is used later to calculate the velocity of the ISS at a certain time. The final method is the display_location method which shows what location the ISS is currently over, either the country or the ocean, which is printed in the terminal. 
+The second class, called Movement, inherits from the Location class in order to move the ISS on the map and track velocity. A Location object is initialized as an attribute so that the globecalc function can be used within the velocity method to divide the distance difference between two time points by the difference in the times. The speed will be printed in the terminal. The go method moves the ISS to the new location.
+The third and final class, Display, has two methods. The setup method sets up the background of the world map. The astronaut_details method shows what astronauts are currently on the ISS. Display inherits from movement in order to use the go method so that the icon will move to the next location. 
+
+## Instructions to Use
+Clone the repository:
+```
+$ git clone https://github.com/benmwu88/ISS-tracker.git
+```
+Change current directory to ISS-tracker repository:
+```
+$ cd ISS-tracker
+```
+Install the geopy library:
+```
+pip install geopy
+```
+Run the program:
+```
+python final_code.py
+```
+## Suggested future directions
+
+
+
+
+
 **Final Project Proposal**
 
 Partners: Kevin Zhou and Ben Wu
