@@ -95,6 +95,7 @@ class Display():
         for p in result["people"]:
             print(p['name'])
  
+
 def main(trail=True):
     map = Display()
     map.setup()
@@ -108,9 +109,16 @@ def main(trail=True):
     while trail == True:
         lon, lat, time = ISS.iss_position()
         speed = ISS.velocity(prevlon, prevlan, prevtime, lon, lat, time)
- 
+    
         # Update the ISS location on the map
         ISS.go(lon, lat)
+
+        if trail==True:
+            ISS.dot(size=2) 
+
+        # Output speed and country to terminal
+        print(f'Speed: {speed} mph')
+        print(f'Above {ISS.display_location(lon, lat)}')
  
         prevlon, prevlan, prevtime = lon, lat, time # update reference values
         time_module.sleep(5) # Update every 5 seconds
