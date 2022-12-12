@@ -34,7 +34,7 @@ python final_code.py
 ```
 ## Suggested future directions
 
-
+Someone that wants to develop the project further could allow the user to input their own location and compare their distance to the ISS. Another feature that can be implemented is determining the direction the ISS is traveling using azimuth and bearing angles. Finally, there could be direction and acceleration as further features. 
 
 
 
