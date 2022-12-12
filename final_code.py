@@ -23,7 +23,7 @@ class Location():
         return lon, lat, time
  
  
-    def globecalc(lon1, lat1, lon2, lat2):
+    def globecalc(self,lon1, lat1, lon2, lat2):
         # convert decimal degrees to radians
         lon1, lat1, lon2, lat2 = map(radians, [lon1, lat1, lon2, lat2])
  
@@ -35,7 +35,7 @@ class Location():
         r = 6371 # Radius of earth in kilometers. Use 3956 for miles. Determines return value units.
         return c * r
  
-    def display_location(lon, lat):
+    def display_location(self,lon, lat):
         geolocator = Nominatim(user_agent="http") # initialize Nominatim API
         location = geolocator.reverse(f'{lat},{lon}')
         if location==None:
@@ -62,6 +62,8 @@ class Movement(Location):
     #direction of ISS at a certain location
     def direction(self):
         pass
+    def go(self,lon,lat):
+        turtle.goto(lon,lat)
  
 #Siaplays Map and ISS position, updating every refresh time
 class Display():
@@ -98,7 +100,7 @@ def main(trail=True):
     map.setup()
     map.astronaut_details()
  
-    ISS = Location()
+    ISS = Movement()
     ISS.iss_position()
  
     prevlon, prevlan, prevtime = ISS.iss_position() # initialize reference values
@@ -108,7 +110,7 @@ def main(trail=True):
         speed = ISS.velocity(prevlon, prevlan, prevtime, lon, lat, time)
  
         # Update the ISS location on the map
-        ISS.goto(lon, lat)
+        ISS.go(lon, lat)
  
         prevlon, prevlan, prevtime = lon, lat, time # update reference values
         time_module.sleep(5) # Update every 5 seconds
