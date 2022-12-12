@@ -64,6 +64,8 @@ class Movement(Location):
         pass
     def go(self,lon,lat):
         turtle.goto(lon,lat)
+    def dot(self,size):
+        turtle.dot(size)
  
 #Siaplays Map and ISS position, updating every refresh time
 class Display():
@@ -114,7 +116,7 @@ def main(trail=True):
         ISS.go(lon, lat)
 
         if trail==True:
-            ISS.dot(size=2) 
+            ISS.dot(2) 
 
         # Output speed and country to terminal
         print(f'Speed: {speed} mph')
