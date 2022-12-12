@@ -49,3 +49,36 @@ Medium Priority: Speed/acceleration and distance from you
 
 Low Priority: Distance from landmarks
 
+Clone the repository:
+Git clone https://github.com/benmwu88/ISS-tracker.git
+
+Change current directory to ISS-tracker repository:
+cd ISS-tracker
+
+Install the geopy library:
+pip install geopy
+
+Run the program:
+python final_code.py
+
+## Table of contents
+* [General info](#general-info)
+* [Technologies](#technologies)
+* [Setup](#setup)
+
+## General info
+This project is simple Lorem ipsum dolor generator.
+	
+## Technologies
+Project is created with:
+* Lorem version: 12.3
+* Ipsum version: 2.33
+* Ament library version: 999
+	
+## Setup
+To run this project, install it locally using npm:
+
+```
+$ cd ../lorem
+$ npm install
+$ npm start
