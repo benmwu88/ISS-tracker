@@ -18,11 +18,11 @@ The third and final class, Display, has two methods. The setup method sets up th
 ## Instructions to Use
 Clone the repository:
 ```
-$ git clone https://github.com/benmwu88/ISS-tracker.git
+git clone https://github.com/benmwu88/ISS-tracker.git
 ```
 Change current directory to ISS-tracker repository:
 ```
-$ cd ISS-tracker
+cd ISS-tracker
 ```
 Install the geopy library:
 ```
