@@ -49,3 +49,14 @@ Medium Priority: Speed/acceleration and distance from you
 
 Low Priority: Distance from landmarks
 
+Clone the repository:
+Git clone https://github.com/benmwu88/ISS-tracker.git
+
+Change current directory to ISS-tracker repository:
+cd ISS-tracker
+
+Install the geopy library:
+pip install geopy
+
+Run the program:
+python final_code.py
