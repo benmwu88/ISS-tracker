@@ -41,11 +41,6 @@ class Location():
         if location==None:
             return 'Ocean'
         return location.raw['address'].get('country', '')
-    def distance_from_user(self):
-        pass
-    #function that finds distance from ISS to various famous landmarks
-    def distance_from_landmarks(self):
-        pass
  
 #ISS movement attributes at a certain location
 class Movement(Location):
@@ -56,19 +51,11 @@ class Movement(Location):
         x = self.d.globecalc(lon1, lat1, lon2, lat2)
         t = time2-time1 or 1 # incase of 0 time difference change to 1 to handle ZeroDivisionError
         return round(((x/t)*3600)/1.60934, 2) # returns speed in kilometers per hour rounded upto 2nd decimal place
-    #acceleration of ISS at a certain location
-    def acceleration(self):
-        pass
-    #direction of ISS at a certain location
-    def direction(self):
-        pass
     def go(self,lon,lat):
         turtle.goto(lon,lat)
-    def dot(self,size):
-        turtle.dot(size)
  
 #Siaplays Map and ISS position, updating every refresh time
-class Display():
+class Display(Movement):
     #display a rectangular map (use library)
     def setup(self):
         turtle.title('ISS Tracker')
@@ -79,13 +66,7 @@ class Display():
         screen.setworldcoordinates(-180,-90,180,90)
         screen.bgpic("map.gif")
  
-        # Setup ISS object
-        screen.register_shape("iss.gif")
-        iss = turtle.Turtle()
-        iss.shape("iss.gif")
-        iss.penup()
- 
-        return iss # return ISS object
+        
  
     def astronaut_details(self):
         # load the current status of astronauts on ISS in real-time
@@ -98,12 +79,10 @@ class Display():
             print(p['name'])
  
 
-def main(trail=True):
-    map = Display()
-    map.setup()
-    map.astronaut_details()
- 
-    ISS = Movement()
+def main(trail=True): 
+    ISS = Display()
+    ISS.setup()
+    ISS.astronaut_details()
     ISS.iss_position()
  
     prevlon, prevlan, prevtime = ISS.iss_position() # initialize reference values
@@ -114,9 +93,6 @@ def main(trail=True):
     
         # Update the ISS location on the map
         ISS.go(lon, lat)
-
-        if trail==True:
-            ISS.dot(2) 
 
         # Output speed and country to terminal
         print(f'Speed: {speed} mph')
