@@ -38,7 +38,7 @@ Someone that wants to develop the project further could allow the user to input 
 
 
 
-##Final Project Proposal
+## Final Project Proposal
 
 Partners: Kevin Zhou and Ben Wu
 
