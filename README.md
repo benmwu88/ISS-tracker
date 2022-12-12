@@ -20,10 +20,6 @@ Clone the repository:
 ```
 git clone https://github.com/benmwu88/ISS-tracker.git
 ```
-Change current directory to ISS-tracker repository:
-```
-cd ISS-tracker
-```
 Install the geopy library:
 ```
 pip install geopy
